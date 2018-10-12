@@ -6,17 +6,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 控制器注解
+ * 按照名称 依赖 注入
  *
  * @author ncguida
  * @date 2018/10/10
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controller {
-    /**
-     * 名称
-     * @return
-     */
-    String value() default "";
+public @interface NameInject {
+
+    String value() default  "";
 }

@@ -6,13 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 依赖引入
+ * 按照类型注入
  *
  * @author ncguida
- * @date 2018/10/10
+ * @date 2018/10/12
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Inject {
+public @interface TypeInject {
 
 }

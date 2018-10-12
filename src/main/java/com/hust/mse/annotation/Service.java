@@ -14,5 +14,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Service {
-
+    /**
+     * 名称
+     * @return
+     */
+    String value() default  "";
 }

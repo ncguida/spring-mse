@@ -27,10 +27,10 @@ public class ReflectionUtil {
 
     }
 
-    public static void invokeMethod(Method method, Object object, Object... args) {
+    public static Object invokeMethod(Method method, Object object, Object... args) {
 
         try {
-            method.invoke(object, args);
+            return  method.invoke(object, args);
         } catch (Exception e) {
             LOGGER.error("invoke method failed", e);
             throw new RuntimeException(e);

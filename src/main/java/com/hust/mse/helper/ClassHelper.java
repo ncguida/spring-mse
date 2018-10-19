@@ -1,5 +1,6 @@
 package com.hust.mse.helper;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,32 @@ public class ClassHelper {
         Set<Class<?>> classSet = new HashSet<>();
         classSet.addAll(getServiceClassSet());
         classSet.addAll(getControllerClassSet());
+        return classSet;
+    }
+
+    public static Set<Class<?>> getClassesBySuper(Class<?> superClass) {
+
+        Set<Class<?>> classSet = new HashSet<>();
+
+        for (Class clz : CLASS_SET) {
+
+            if (clz.isAssignableFrom(superClass) && !clz.equals(superClass)) {
+                classSet.add(clz);
+            }
+        }
+        return classSet;
+    }
+
+    public static Set<Class<?>> getClassesByAnnotaion(Class<? extends Annotation> annotationClz) {
+        Set<Class<?>> classSet = new HashSet<>();
+
+        for (Class clz : CLASS_SET) {
+            if (clz.isAnnotationPresent(annotationClz)) {
+                classSet.add(clz);
+            }
+
+        }
+
         return classSet;
     }
 
